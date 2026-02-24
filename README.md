@@ -10,12 +10,28 @@ github link:: https://github.com/mebushraa/job-tracker-as
 <h2>1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?</h2>
  <br/>
 <p>
-1️⃣ getElementById()
-
-🔹 Selects one element by its id
-🔹 Returns a single element object
-🔹 IDs must be unique
+i. getElementById()
 <br/>
+🔹 Selects one element by its id <br/>
+🔹 Returns a single element object <br/>
+🔹 IDs must be unique <br/>
+<br/> <br/>
+ii. getElementsByClassName()
+<br/>
+🔹 Selects elements by class name <br/>
+🔹 Returns an HTMLCollection (array-like object) <br/>
+🔹 Can return multiple elements <br/><br/>
+
+iii. querySelector() <br/>
+
+🔹 Uses CSS selector <br/>
+🔹 Returns first matching element only <br/> <br/>
+
+iv. querySelectorAll() <br/>
+
+🔹 Uses CSS selector <br/>
+🔹 Returns NodeList <br/>
+🔹 Can return multiple elements <br/> <br/>
 
 </p>
 </br>
@@ -23,7 +39,13 @@ github link:: https://github.com/mebushraa/job-tracker-as
 
 <h2>2. How do you create and insert a new element into the DOM?</h2>
 <br/>
-<p></p>
+<p>
+Steps are: <br/> <br/>
+const newDiv = document.createElement("div"); <br/>
+newDiv.textContent = "Hello World"; <br/ >
+document.body.appendChild(newDiv);
+
+</p>
 <br/>
 <br/>
 
