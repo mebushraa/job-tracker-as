@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Plants</title>
+
+    <!-- google fonts (inter) -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    /> -->
+
+    <!-- font-awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- tailwind link  -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body class="bg-[#f8fafc] text-[#002c5c]">
+    <!-- headers design is ready for assignment -->
+    <header class="w-[80%] mx-auto border-b-2 border-gray-200">
+      <h1 class="text-4xl font-bold pt-10">Job Application Tracker</h1>
+      <div class="grid grid-cols-3 gap-8 py-7">
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <p>Total</p>
+          <p id="total">0</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <p>Interview</p>
+          <p id="thriving-count">0</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <p>Rejected</p>
+          <p id="struggling-count">0</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- main section  -->
+    <main class="w-[80%] mx-auto">
+      <h3 class="text-2xl mt-7 pb-6 font-semibold">Available Jobs</h3>
+
+      <!-- main btn part  -->
+      <div class="space-x-3">
+        <button
+          class="px-6 py-3 bg-blue-700 text-white rounded-sm shadow-md"
+          id="all-filter-btn"
+        >
+          All
+        </button>
+        <button
+          class="px-6 py-3 bg-white rounded-sm shadow-md"
+          id="thriving-filter-btn"
+        >
+          Thriving
+        </button>
+        <button
+          class="px-6 py-3 bg-white rounded-sm shadow-md"
+          id="strugling-filter-btn"
+        >
+          Struggling
+        </button>
+      </div>
+
+      <!-- cards  -->
+      <section id="all-card">
+        <!-- card 1 -->
+        <div
+          class="card flex justify-between bg-white rounded-lg p-7 mt-6 shadow-md"
+        >
+          <!-- left side  -->
+          <div class="space-y-3.5">
+            <div>
+              <h3 id="company-name" class="text-xl font-bold">
+                Mobile First Corp
+              </h3>
+              <h4 class="job-title text-neutral-500">React Native Developer</h4>
+            </div>
+
+            <p class="about-job text-neutral-500">
+              Remote &#x2022; Full-time &#x2022; &dollar;130,000 -
+              &dollar;175,000
+            </p>
+
+            <!-- status -->
+            <button
+              class="status bg-blue-100 font-semibold rounded-sm px-4 py-1.5"
+            >
+              NOT APPLIED
+            </button>
+
+            <p class="job-description">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+
+            <!-- actionable btn part  -->
+            <div class="flex gap-2.5">
+              <button
+                class="interview-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-green-400 text-green-400"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="rejected-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-red-400 text-red-400"
+              >
+                REJECTED
+              </button>
+            </div>
+          </div>
+
+          <!-- right side  -->
+          <div>
+            <button
+              class="delete-btn border-2 border-neutral-200 w-10 h-10 rounded-full text-neutral-500"
+            >
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
