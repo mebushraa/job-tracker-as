@@ -6,6 +6,9 @@ let total = document.getElementById("total");
 let interviewCount = document.getElementById("interview-count");
 let rejectedCount = document.getElementById("rejected-count");
 
+// empty card
+const emptyCard = document.getElementById("empty-card");
+
 // get filter buttons
 const allFilterBtn = document.getElementById("all-filter-btn");
 const interviewFilterBtn = document.getElementById("interview-filter-btn");
@@ -17,9 +20,22 @@ const filteredSection = document.getElementById("filtered-section");
 
 // calculate
 function calculateCount() {
-  total.innerText = allCardSection.children.length;
+  //****************** */
+  // update for empty card
+  const realCardCount = allCardSection.querySelectorAll(".card").length;
+
+  total.innerText = realCardCount;
   interviewCount.innerText = interviewList.length;
   rejectedCount.innerText = rejectedList.length;
+
+  // Handle ALL section empty
+  if (currentStatus === "all-filter-btn") {
+    if (realCardCount === 0) {
+      emptyCard.classList.remove("hidden");
+    } else {
+      emptyCard.classList.add("hidden");
+    }
+  }
 }
 
 calculateCount();
@@ -187,68 +203,62 @@ mainContainer.addEventListener("click", function (event) {
 // for interview button
 function renderInterview() {
   filteredSection.innerHTML = "";
-
   for (let interview of interviewList) {
     let div = document.createElement("div");
     div.className =
       "card flex justify-between bg-white rounded-lg p-7 mt-8 shadow-md";
     div.innerHTML = `
-                <div class="space-y-3.5">
-            <div>
-              <h3 id="company-name" class="text-xl font-bold">
-                ${interview.companyName}
-              </h3>
-              <h4 class="job-title text-neutral-500">React Native Developer</h4>
-            </div>
-
-            <p class="about-job text-neutral-500">
-              Remote &#x2022; Full-time &#x2022; &dollar;130,000 -
-              &dollar;175,000
-            </p>
-
-            <!-- status -->
-            <button
-              class="status bg-blue-50 font-semibold rounded-sm px-4 py-1.5 border border-neutral-300"
-            >
-              ${interview.status}
-            </button>
-
-            <p class="job-description">
-              Build cross-platform mobile applications using React Native. Work
-              on products used by millions of users worldwide.
-            </p>
-
-            <!-- actionable btn part  -->
-            <div class="flex gap-2.5">
-              <button
-                class="interview-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-green-400 text-green-400"
-              >
-                INTERVIEW
-              </button>
-              <button
-                class="rejected-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-red-400 text-red-400"
-              >
-                REJECTED
-              </button>
-            </div>
-          </div>
-
-          <!-- right side  -->
+              <div class="space-y-3.5">
           <div>
+            <h3 id="company-name" class="text-xl font-bold">
+              ${interview.companyName}
+            </h3>
+            <h4 class="job-title text-neutral-500">React Native Developer</h4>
+          </div>
+          <p class="about-job text-neutral-500">
+            Remote &#x2022; Full-time &#x2022; &dollar;130,000 -
+            &dollar;175,000
+          </p>
+          <!-- status -->
+          <button
+            class="status bg-blue-50 font-semibold rounded-sm px-4 py-1.5 border border-neutral-300"
+          >
+            ${interview.status}
+          </button>
+          <p class="job-description">
+            Build cross-platform mobile applications using React Native. Work
+            on products used by millions of users worldwide.
+          </p>
+          <!-- actionable btn part  -->
+          <div class="flex gap-2.5">
             <button
-              class="delete-btn border-2 border-neutral-200 w-10 h-10 rounded-full text-neutral-500"
+              class="interview-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-green-400 text-green-400"
             >
-              <i class="fa-regular fa-trash-can"></i>
+              INTERVIEW
+            </button>
+            <button
+              class="rejected-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-red-400 text-red-400"
+            >
+              REJECTED
             </button>
           </div>
-    `;
-
+        </div>
+        <!-- right side  -->
+        <div>
+          <button
+            class="delete-btn border-2 border-neutral-200 w-10 h-10 rounded-full text-neutral-500"
+          >
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+  `;
     filteredSection.appendChild(div);
   }
 }
 
 // for rejected btn
 function renderRejected() {
+  // for empty card
   filteredSection.innerHTML = "";
 
   for (let rejected of rejectedList) {
