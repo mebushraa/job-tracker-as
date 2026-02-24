@@ -33,15 +33,15 @@
       <div class="grid grid-cols-3 gap-8 py-7">
         <div class="bg-white p-4 rounded-lg shadow-md">
           <p>Total</p>
-          <p id="total">0</p>
+          <p id="total" class="text-2xl font-bold">0</p>
         </div>
         <div class="bg-white p-4 rounded-lg shadow-md">
           <p>Interview</p>
-          <p id="thriving-count">0</p>
+          <p id="interview-count" class="text-2xl font-bold">0</p>
         </div>
         <div class="bg-white p-4 rounded-lg shadow-md">
           <p>Rejected</p>
-          <p id="struggling-count">0</p>
+          <p id="rejected-count" class="text-2xl font-bold">0</p>
         </div>
       </div>
     </header>
@@ -53,30 +53,42 @@
       <!-- main btn part  -->
       <div class="space-x-3">
         <button
-          class="px-6 py-3 bg-blue-700 text-white rounded-sm shadow-md"
+          onclick="toggleStyle('all-filter-btn')"
           id="all-filter-btn"
+          class="px-6 py-3 bg-blue-700 text-white rounded-sm shadow-md"
         >
           All
         </button>
         <button
+          onclick="toggleStyle('interview-filter-btn')"
+          id="interview-filter-btn"
           class="px-6 py-3 bg-white rounded-sm shadow-md"
-          id="thriving-filter-btn"
         >
-          Thriving
+          Interview
         </button>
         <button
+          onclick="toggleStyle('rejected-filter-btn')"
+          id="rejected-filter-btn"
           class="px-6 py-3 bg-white rounded-sm shadow-md"
-          id="strugling-filter-btn"
         >
-          Struggling
+          Rejected
         </button>
       </div>
 
+      <!-- filtered  -->
+      <section id="filtered-section" class="hidden">
+        <!-- h1 er poriborte ekhane not any card type er je design oita add korte hobe -->
+
+        <!-- probably if there is no card then show this design evabe o kaj kora jete pare  -->
+
+        <h1>Habi jabi</h1>
+      </section>
+
       <!-- cards  -->
-      <section id="all-card">
+      <section id="all-card" class="space-y-7 mb-16">
         <!-- card 1 -->
         <div
-          class="card flex justify-between bg-white rounded-lg p-7 mt-6 shadow-md"
+          class="card flex justify-between bg-white rounded-lg p-7 mt-8 shadow-md"
         >
           <!-- left side  -->
           <div class="space-y-3.5">
@@ -94,7 +106,7 @@
 
             <!-- status -->
             <button
-              class="status bg-blue-100 font-semibold rounded-sm px-4 py-1.5"
+              class="status bg-blue-50 font-semibold rounded-sm px-4 py-1.5 border border-neutral-300"
             >
               NOT APPLIED
             </button>
@@ -107,12 +119,124 @@
             <!-- actionable btn part  -->
             <div class="flex gap-2.5">
               <button
-                class="interview-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-green-400 text-green-400"
+                class="interview-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-green-400 text-green-400 shadow-md"
               >
                 INTERVIEW
               </button>
               <button
-                class="rejected-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-red-400 text-red-400"
+                class="rejected-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-red-400 text-red-400 shadow-md"
+              >
+                REJECTED
+              </button>
+            </div>
+          </div>
+
+          <!-- right side  -->
+          <div>
+            <button
+              class="delete-btn border-2 border-neutral-200 w-10 h-10 rounded-full text-neutral-500"
+            >
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- card 2  -->
+        <div
+          class="card flex justify-between bg-white rounded-lg p-7 shadow-md"
+        >
+          <!-- left side  -->
+          <div class="space-y-3.5">
+            <div>
+              <h3 id="company-name" class="text-xl font-bold">
+                WebFlow Agency
+              </h3>
+              <h4 class="job-title text-neutral-500">
+                Web Designer & Developer
+              </h4>
+            </div>
+
+            <p class="about-job text-neutral-500">
+              Remote &#x2022; Full-time &#x2022; &dollar;130,000 -
+              &dollar;175,000
+            </p>
+
+            <!-- status -->
+            <button
+              class="status bg-blue-50 font-semibold rounded-sm px-4 py-1.5 border border-neutral-300"
+            >
+              NOT APPLIED
+            </button>
+
+            <p class="job-description">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+
+            <!-- actionable btn part  -->
+            <div class="flex gap-2.5">
+              <button
+                class="interview-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-green-400 text-green-400 shadow-md"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="rejected-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-red-400 text-red-400 shadow-md"
+              >
+                REJECTED
+              </button>
+            </div>
+          </div>
+
+          <!-- right side  -->
+          <div>
+            <button
+              class="delete-btn border-2 border-neutral-200 w-10 h-10 rounded-full text-neutral-500"
+            >
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- card 3  -->
+        <div
+          class="card flex justify-between bg-white rounded-lg p-7 shadow-md"
+        >
+          <!-- left side  -->
+          <div class="space-y-3.5">
+            <div>
+              <h3 id="company-name" class="text-xl font-bold">
+                DataViz Solutions
+              </h3>
+              <h4 class="job-title text-neutral-500">React Native Developer</h4>
+            </div>
+
+            <p class="about-job text-neutral-500">
+              Remote &#x2022; Full-time &#x2022; &dollar;130,000 -
+              &dollar;175,000
+            </p>
+
+            <!-- status -->
+            <button
+              class="status bg-blue-50 font-semibold rounded-sm px-4 py-1.5 border border-neutral-300"
+            >
+              NOT APPLIED
+            </button>
+
+            <p class="job-description">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+
+            <!-- actionable btn part  -->
+            <div class="flex gap-2.5">
+              <button
+                class="interview-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-green-400 text-green-400 shadow-md"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="rejected-btn font-semibold border-2 rounded-sm px-4 py-1.5 border-red-400 text-red-400 shadow-md"
               >
                 REJECTED
               </button>
@@ -129,6 +253,9 @@
           </div>
         </div>
       </section>
+
+      <!-- javascript part  -->
+      <script src="./script.js"></script>
     </main>
   </body>
 </html>
