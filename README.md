@@ -40,7 +40,7 @@ iv. querySelectorAll() <br/>
 <h2>2. How do you create and insert a new element into the DOM?</h2>
 <br/>
 <p>
-Steps are: <br/> <br/>
+<span style="font-weight: bold">Steps are: <span/> <br/> <br/>
 const newDiv = document.createElement("div"); <br/>
 newDiv.textContent = "Hello World"; <br/ >
 document.body.appendChild(newDiv);
@@ -51,18 +51,40 @@ document.body.appendChild(newDiv);
 
 <h2>3. What is Event Bubbling? And how does it work?</h2>
 <br/>
-<p></p>
+<p>
+
+Definition: Event bubbling is the default JavaScript behavior where an event triggered on a child element propagates upward through its ancestor elements in the DOM tree—from the innermost target up to the document object. It works by first firing the event on the target element, then its parent, then parents parent.....
+<br/>
+<br>
+it works as:
+<br/>
+<img src="https://javascript.info/bubbling-and-capturing">
+
+</p>
 <br/>
 <br/>
 
 <h2>4. What is Event Delegation in JavaScript? Why is it useful?</h2>
 <br/>
-<p></p>
+<p>
+
+Event Delegation is a design pattern where you attach a single event listener to a parent element instead of multiple listeners to individual child elements.
+<br/>
+<br/>
+It is useful because it improves performance, reduces the number of event listeners, and also works for dynamically added elements.
+
+</p>
 <br/>
 <br/>
 
 <h2>5. What is the difference between preventDefault() and stopPropagation() methods?</h2>
 <br/>
-<p></p>
+<p>
+
+preventDefault() stops the browser’s default behavior for an event. For example, it can prevent a form from submitting or stop a link from navigating to another page.
+<br/>
+stopPropagation() stops the event from propagating (bubbling) up or down the DOM tree, so parent or ancestor event listeners will not be triggered.
+
+</p>
 <br/>
 <br/>
