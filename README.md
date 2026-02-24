@@ -59,6 +59,15 @@ Definition: Event bubbling is the default JavaScript behavior where an event tri
 it works as:
 <br/>
 <img src="https://javascript.info/bubbling-and-capturing">
+<br>
+<br>
+
+step 1: The event travels down from the window to the target. <br>
+step 2: The event triggers on the actual element clicked. <br>
+step 3: The event moves back up the DOM tree, triggering listeners on every ancestor.
+
+<br>
+This is the engine behind Event Delegation; it allows a parent to "hear" what happens to its children. You can stop this process at any time by calling event.stopPropagation().
 
 </p>
 <br/>
