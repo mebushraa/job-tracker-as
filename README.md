@@ -9,7 +9,15 @@ github link:: https://github.com/mebushraa/job-tracker-as
 
 <h2>1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?</h2>
  <br/>
-<p></p>
+<p>
+1️⃣ getElementById()
+
+🔹 Selects one element by its id
+🔹 Returns a single element object
+🔹 IDs must be unique
+<br/>
+
+</p>
 </br>
 </br>
 

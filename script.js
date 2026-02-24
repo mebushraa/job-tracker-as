@@ -20,6 +20,9 @@ const filteredSection = document.getElementById("filtered-section");
 
 // calculate
 function calculateCount() {
+  // total.innerText = allCardSection.children.length;
+  // interviewCount.innerText = interviewList.length;
+  // rejectedCount.innerText = rejectedList.length;
   //****************** */
   // update for empty card
   const realCardCount = allCardSection.querySelectorAll(".card").length;
